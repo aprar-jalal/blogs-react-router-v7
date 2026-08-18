@@ -79,6 +79,11 @@ export default function BlogDetails({ loaderData }: Route.ComponentProps) {
           ${getUnsplashImageUrl(blog.image, 800)} 800w,
           ${getUnsplashImageUrl(blog.image, 1200)} 1200w
         `}
+                  sizes="
+          (max-width: 640px) calc(100vw - 3rem),
+          (max-width: 1024px) calc((100vw - 4rem - 2.5rem) / 2),
+          360px
+        "
                   alt={blog.title}
                   className="h-auto max-h-[500px] w-full object-cover"
                   loading="eager"
@@ -306,10 +311,21 @@ export default function BlogDetails({ loaderData }: Route.ComponentProps) {
                   className="group overflow-hidden rounded-2xl bg-white transition hover:-translate-y-1 hover:shadow-lg"
                 >
                   <img
-                    src={relatedBlog.image}
+                    src={getUnsplashImageUrl(relatedBlog.image, 800)}
+                    srcSet={`
+          ${getUnsplashImageUrl(blog.image, 400)} 400w,
+          ${getUnsplashImageUrl(blog.image, 800)} 800w,
+          ${getUnsplashImageUrl(blog.image, 1200)} 1200w
+        `}
+                    sizes="
+          (max-width: 640px) calc(100vw - 3rem),
+          (max-width: 1024px) calc((100vw - 4rem - 2.5rem) / 2),
+          360px
+        "
                     alt={relatedBlog.title}
                     className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105"
                   />
+
                   <div className="p-6">
                     <h3 className="mb-3 line-clamp-2 text-lg font-bold leading-snug text-slate-900">
                       {relatedBlog.title}

@@ -22,8 +22,10 @@ export async function loader({ params }: Route.LoaderArgs) {
       status: 400,
     });
   }
-  const blog = await getBlogById(params.blogId);
-  const blogs = await getBlogs();
+ const [blog, blogs] = await Promise.all([
+    getBlogById(params.blogId),
+    getBlogs(),
+  ]);
   const relatedBlogs = blogs
     .filter((item) => item.id !== params.blogId)
     .slice(0, 3);
@@ -97,6 +99,8 @@ export default function BlogDetails({ loaderData }: Route.ComponentProps) {
                   alt={blog.title}
                   className="max-h-[500px] w-full object-cover"
                   fetchPriority="high"
+                  width={800}
+                  height={500}
                 />
               </div>
             </div>

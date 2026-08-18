@@ -26,14 +26,27 @@ export async function loader({ params }: Route.LoaderArgs) {
     {
       headers: {
         "Cache-Control": "public, max-age=300, s-maxage=3600",
-        
       },
-      
-
     },
   );
 }
 
+function getUnsplashImageUrl(image: string, width: number, quality = 75) {
+  try {
+    const url = new URL(image);
+
+    if (url.hostname.includes("unsplash.com")) {
+      url.searchParams.set("auto", "format");
+      url.searchParams.set("fit", "crop");
+      url.searchParams.set("w", String(width));
+      url.searchParams.set("q", String(quality));
+    }
+
+    return url.toString();
+  } catch {
+    return image;
+  }
+}
 export default function BlogDetails({ loaderData }: Route.ComponentProps) {
   const { blog, relatedBlogs } = loaderData;
 
@@ -60,9 +73,15 @@ export default function BlogDetails({ loaderData }: Route.ComponentProps) {
               </h1>
               <div className="mt-6 overflow-hidden ">
                 <img
-                  src={blog.image}
+                  src={getUnsplashImageUrl(blog.image, 800)}
+                  srcSet={`
+          ${getUnsplashImageUrl(blog.image, 400)} 400w,
+          ${getUnsplashImageUrl(blog.image, 800)} 800w,
+          ${getUnsplashImageUrl(blog.image, 1200)} 1200w
+        `}
                   alt={blog.title}
                   className="h-auto max-h-[500px] w-full object-cover"
+                  loading="eager"
                 />
               </div>
             </div>

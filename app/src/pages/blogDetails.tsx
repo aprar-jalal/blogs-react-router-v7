@@ -1,19 +1,29 @@
 import { useState } from "react";
-import { Calendar, Minus, Plus } from "lucide-react";
-
+import { Minus, Plus } from "lucide-react";
 import type { Route } from "./+types/blogDetails";
 import { getBlogById, getBlogs } from "../services/GetData";
 
+export function meta({ data }: Route.MetaArgs) {
+  return [
+    {
+      title: data?.blog?.title ?? "Blog Details",
+    },
+    {
+      name: "description",
+      content:
+        data?.blog?.description ??
+        "Read our latest articles and insights.",
+    },
+  ];
+}
 export async function loader({ params }: Route.LoaderArgs) {
   if (!params.blogId) {
     throw new Response("Blog ID is required", {
       status: 400,
     });
   }
-
   const blog = await getBlogById(params.blogId);
   const blogs = await getBlogs();
-
   const relatedBlogs = blogs
     .filter((item) => item.id !== params.blogId)
     .slice(0, 3);

@@ -95,8 +95,8 @@ export default function BlogDetails({ loaderData }: Route.ComponentProps) {
           360px
         "
                   alt={blog.title}
-                  className="h-auto max-h-[500px] w-full object-cover"
-                  loading="eager"
+                  className="max-h-[500px] w-full object-cover"
+                  fetchPriority="high"
                 />
               </div>
             </div>

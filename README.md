@@ -4,7 +4,7 @@ A modern, responsive blog platform built with **React Router v7**, focused on le
 
 ## 🚀 Live Demo
 
-[View Live Demo](#)
+[[View Live Demo](https://blogs-gb9u.onrender.com)](#)
 
 ## 📌 About the Project
 

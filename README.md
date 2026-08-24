@@ -2,10 +2,6 @@
 
 A modern, responsive blog platform built with **React Router v7**, focused on learning and applying modern React routing, data loading, performance optimization, and SEO best practices.
 
-## 🚀 Live Demo
-
-[[View Live Demo](https://blogs-gb9u.onrender.com)](#)
-
 ## 📌 About the Project
 
 This project is a blog website built while learning and applying **React Router v7** concepts.

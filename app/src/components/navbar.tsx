@@ -1,16 +1,20 @@
-import { Link, NavLink, useNavigation } from "react-router";
-import type { Route } from "../../+types/root";
+import { NavLink } from "react-router";
 
 export default function Navbar() {
   return (
-    <nav className="flex z-111 items-center justify-around px-6 py-4 sticky top-0 border-b border-b-gray-300 bg-white" role="navigation">
+    <nav
+      className="sticky top-0 z-50 flex items-center justify-around border-b border-gray-300 bg-white px-6 py-4"
+      role="navigation"
+    >
       <h1 className="text-2xl font-bold">My Blog</h1>
 
       <div className="flex gap-6">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "text-gray-600" : "font-bold text-blue-600 border-b"
+            isActive
+              ? "border-b-2 border-blue-600 font-bold text-blue-600"
+              : "text-gray-600 hover:text-blue-600"
           }
         >
           Home
@@ -18,18 +22,14 @@ export default function Navbar() {
 
         <NavLink
           to="#"
-          className={({ isActive }) =>
-            isActive ? "text-gray-600" : "font-bold text-blue-600 border-b"
-          }
+          className="text-gray-600 hover:text-blue-600"
         >
           Posts
         </NavLink>
 
         <NavLink
           to="#"
-          className={({ isActive }) =>
-            isActive ? "text-gray-600" : "font-bold text-blue-600 border-b"
-          }
+          className="text-gray-600 hover:text-blue-600"
         >
           About
         </NavLink>

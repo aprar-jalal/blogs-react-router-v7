@@ -70,7 +70,7 @@ function FooterColumn({ title, links }: FooterColumnProps) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0d0f2e] text-white mt-15">
+    <footer className="bg-[#0d0f2e] text-white ">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-6">
           <div className="sm:col-span-2 lg:col-span-1">

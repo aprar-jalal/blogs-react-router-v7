@@ -75,7 +75,7 @@ export default function BlogDetails({ loaderData }: Route.ComponentProps) {
         <section className="mx-auto grid max-w-11/12 gap-5 px-6 pb-20 pt-14 lg:grid-cols-[3fr_1fr]">
           <div className="min-w-0 ">
             <div className="rounded-xl border border-gray-300 p-7 bg-white">
-              <div className="mb-5 mt-5">
+              <div className=" mt-5">
                 <span className="text-sm  uppercase tracking-widest bg-emerald-100 py-4 px-6 rounded-4xl">
                   Article
                 </span>

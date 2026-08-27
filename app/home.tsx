@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { Route } from "./+types/home";
-import Navbar from "./src/components/navbar";
-import Footer from "./src/components/footer";
+
 import Blog from "./src/components/blog";
 import { getBlogs } from "./src/services/GetData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -36,7 +35,6 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 
   return (
     <div>
-      <Navbar />
 
       <main role="main">
         <h2 className="mt-14 text-center text-3xl font-bold">
@@ -94,7 +92,6 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }
